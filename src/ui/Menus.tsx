@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
-import { MdAccountCircle, MdLanguage, MdSmartphone } from "react-icons/md";
+import { MdAccountCircle, MdCode, MdWork } from "react-icons/md";
+import Account from "./Account/Account";
 import "./Menus.css";
 
 interface MenuItem {
@@ -13,33 +14,45 @@ const menuItems: MenuItem[] = [
     label: "Account",
   },
   {
-    icon: <MdLanguage size="24" />,
-    label: "Product Web",
+    icon: <MdWork size="24" />,
+    label: "Work",
   },
   {
-    icon: <MdSmartphone size="24" />,
-    label: "Product Mobile",
+    icon: <MdCode size="24" />,
+    label: "Side",
   },
 ];
 
 const Menus: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeSubMenu, setActiveSubMenu] = useState(0);
 
   return (
-    <div className="menu-container">
-      {menuItems.map((item, index) => (
-        <button
-          key={item.label}
-          className={`menu-item ${activeIndex === index ? "active" : ""}`}
-          onClick={() => setActiveIndex(index)}
-        >
-          <div className="menu-icon">{item.icon}</div>
-          {activeIndex === index && (
-            <span className="menu-label">{item.label}</span>
-          )}
-        </button>
-      ))}
-    </div>
+    <>
+      <div className="menu-container">
+        {menuItems.map((item, index) => (
+          <button
+            key={item.label}
+            className={`menu-item ${activeIndex === index ? "active" : ""}`}
+            onClick={() => {
+              setActiveIndex(index);
+              setActiveSubMenu(0); // サブメニュー選択をリセット
+            }}
+          >
+            <div className="menu-icon">{item.icon}</div>
+            {activeIndex === index && (
+              <span className="menu-label">{item.label}</span>
+            )}
+          </button>
+        ))}
+      </div>
+      {activeIndex === 0 && (
+        <Account
+          activeSubMenu={activeSubMenu}
+          onSubMenuSelect={setActiveSubMenu}
+        />
+      )}
+    </>
   );
 };
 

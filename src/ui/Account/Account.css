@@ -1,0 +1,84 @@
+.submenu-container {
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  animation: slideDown 0.2s ease;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  min-width: 160px;
+  animation: fadeIn 0.2s ease backwards;
+}
+
+.submenu-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.submenu-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.submenu-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.submenu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.submenu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.submenu-item.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submenu-item.active .submenu-icon {
+  transform: scale(1.1);
+}
+
+.submenu-label {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
