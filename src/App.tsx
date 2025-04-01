@@ -1,6 +1,7 @@
 import "./App.css";
 import buttonLeft from "./assets/button_left.svg";
 import buttonRight from "./assets/button_right.svg";
+import Menus from "./ui/Menus";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <div className="stream-bottom" />
         </div>
         <div className="content">
+          <Menus />
           <h1>Hello World</h1>
         </div>
       </div>
