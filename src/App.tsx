@@ -16,7 +16,6 @@ const App = () => {
         </div>
         <div className="content">
           <Menus />
-          <h1>Hello World</h1>
         </div>
       </div>
       <div className="controller right">

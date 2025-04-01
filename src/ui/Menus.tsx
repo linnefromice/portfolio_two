@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
 import { MdAccountCircle, MdCode, MdWork } from "react-icons/md";
 import Account from "./Account/Account";
+import Content from "./Content/Content";
 import "./Menus.css";
+import Side from "./Side/Side";
 
 interface MenuItem {
   icon: JSX.Element;
@@ -36,7 +38,7 @@ const Menus: FC = () => {
             className={`menu-item ${activeIndex === index ? "active" : ""}`}
             onClick={() => {
               setActiveIndex(index);
-              setActiveSubMenu(0); // サブメニュー選択をリセット
+              setActiveSubMenu(0);
             }}
           >
             <div className="menu-icon">{item.icon}</div>
@@ -52,6 +54,13 @@ const Menus: FC = () => {
           onSubMenuSelect={setActiveSubMenu}
         />
       )}
+      {activeIndex === 2 && (
+        <Side
+          activeSubMenu={activeSubMenu}
+          onSubMenuSelect={setActiveSubMenu}
+        />
+      )}
+      <Content activeMenu={activeIndex} activeSubMenu={activeSubMenu} />
     </>
   );
 };
