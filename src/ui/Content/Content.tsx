@@ -2,6 +2,7 @@ import { FC } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { MdAccountCircle, MdSmartphone, MdWeb, MdWork } from "react-icons/md";
 import "./Content.css";
+import Profile from "./Profile";
 
 interface ContentProps {
   activeMenu: number;
@@ -9,6 +10,15 @@ interface ContentProps {
 }
 
 const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
+  // Account menu の Profile を表示
+  if (activeMenu === 0 && activeSubMenu === 0) {
+    return (
+      <div className="content-display">
+        <Profile />
+      </div>
+    );
+  }
+
   const getIcon = () => {
     if (activeMenu === 1) return <MdWork size="64" />;
     if (activeMenu === 0) return <MdAccountCircle size="64" />;
