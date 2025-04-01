@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { FaTwitter } from "react-icons/fa";
+import { FaGraduationCap, FaTwitter } from "react-icons/fa";
 import { MdAccountCircle, MdSmartphone, MdWeb, MdWork } from "react-icons/md";
 import "./Content.css";
 import Profile from "./Profile";
+import Skill from "./Skill";
 
 interface ContentProps {
   activeMenu: number;
@@ -10,13 +11,32 @@ interface ContentProps {
 }
 
 const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
-  // Account menu の Profile を表示
-  if (activeMenu === 0 && activeSubMenu === 0) {
-    return (
-      <div className="content-display">
-        <Profile />
-      </div>
-    );
+  // Account menu の表示
+  if (activeMenu === 0) {
+    if (activeSubMenu === 0) {
+      return (
+        <div className="content-display">
+          <Profile />
+        </div>
+      );
+    }
+    if (activeSubMenu === 1) {
+      return (
+        <div className="content-display">
+          <Skill />
+        </div>
+      );
+    }
+    if (activeSubMenu === 2) {
+      return (
+        <div className="content-display">
+          <div className="content-icon">
+            <FaGraduationCap size="64" />
+          </div>
+          <span className="content-label">Career</span>
+        </div>
+      );
+    }
   }
 
   const getIcon = () => {

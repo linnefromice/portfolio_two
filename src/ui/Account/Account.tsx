@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { FaGraduationCap } from "react-icons/fa";
 import { MdFreeBreakfast, MdWorkHistory } from "react-icons/md";
 import { RiProfileLine } from "react-icons/ri";
 import "./Account.css";
@@ -15,6 +16,10 @@ const subMenuItems: SubMenuItem[] = [
   },
   {
     icon: <MdWorkHistory size="20" />,
+    label: "Skill",
+  },
+  {
+    icon: <FaGraduationCap size="20" />,
     label: "Career",
   },
   {
