@@ -30,9 +30,13 @@ const Work: FC = () => {
   const [images, setImages] = useState<WorkImage[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cycle, setCycle] = useState(0);
+  const [isAllDisplayed, setIsAllDisplayed] = useState(false);
 
   useEffect(() => {
-    if (cycle >= 3) return;
+    if (cycle >= 3) {
+      setIsAllDisplayed(true);
+      return;
+    }
 
     const createNextImage = (): WorkImage => {
       // ランダムな位置を生成（-45%から45%の範囲）
@@ -89,7 +93,7 @@ const Work: FC = () => {
         }
         return next;
       });
-    }, 500);
+    }, 300);
 
     return () => clearInterval(interval);
   }, [currentIndex, cycle]);
@@ -118,6 +122,11 @@ const Work: FC = () => {
           />
         </div>
       ))}
+      {isAllDisplayed && (
+        <div className="work-overlay">
+          <span className="work-more-text">and more ...</span>
+        </div>
+      )}
     </div>
   );
 };
