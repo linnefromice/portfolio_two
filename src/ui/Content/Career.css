@@ -1,0 +1,114 @@
+.career-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px;
+  color: #333;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+}
+
+.career-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.career-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(100, 108, 255, 0.2);
+}
+
+.career-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.career-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.career-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.career-title a {
+  color: #646cff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.career-title a:hover {
+  color: #535bf2;
+}
+
+.former-name {
+  font-size: 12px;
+  color: #666;
+  margin-left: 8px;
+}
+
+.career-duration {
+  font-size: 14px;
+  color: #666;
+}
+
+.career-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin: 0;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.career-detail-item {
+  width: 100%;
+  text-align: left;
+  margin: 2px 0; /* 行間を縮小 */
+  padding: 0;
+}
+
+/* スクロールバーのスタイル */
+.career-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.career-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.career-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.career-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { FaGraduationCap, FaTwitter } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 import { MdAccountCircle, MdSmartphone, MdWeb, MdWork } from "react-icons/md";
+import Career from "./Career";
 import "./Content.css";
 import Profile from "./Profile";
 import Skill from "./Skill";
@@ -30,10 +31,7 @@ const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
     if (activeSubMenu === 2) {
       return (
         <div className="content-display">
-          <div className="content-icon">
-            <FaGraduationCap size="64" />
-          </div>
-          <span className="content-label">Career</span>
+          <Career />
         </div>
       );
     }
