@@ -27,13 +27,6 @@ const PROFILE_ITEM_LIST: {
   },
 ];
 
-const MAIN_SKILL_ITEMS: SkillItem[] = [
-  { name: "Rust", color: "primary" },
-  { name: "TypeScript", color: "primary" },
-  { name: "React", color: "primary" },
-  { name: "SwiftUI", color: "primary" },
-];
-
 const Profile: FC = () => {
   return (
     <div className="profile-content">

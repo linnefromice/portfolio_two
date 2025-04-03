@@ -5,6 +5,10 @@ import Career from "./Career";
 import "./Content.css";
 import Hobby from "./Hobby";
 import Profile from "./Profile";
+import FFQuiz from "./Side/FFQuiz";
+import StudyRecord from "./Side/StudyRecord";
+import Tweet from "./Side/Tweet";
+import WarSimGame from "./Side/WarSimGame";
 import Skill from "./Skill";
 
 interface ContentProps {
@@ -43,6 +47,34 @@ const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
         </div>
       );
     }
+  }
+
+  // Side menuの場合
+  if (activeMenu === 2) {
+    if (activeSubMenu === 0)
+      return (
+        <div className="content-display">
+          <WarSimGame />
+        </div>
+      );
+    if (activeSubMenu === 1)
+      return (
+        <div className="content-display">
+          <Tweet />
+        </div>
+      );
+    if (activeSubMenu === 2)
+      return (
+        <div className="content-display">
+          <StudyRecord />
+        </div>
+      );
+    if (activeSubMenu === 3)
+      return (
+        <div className="content-display">
+          <FFQuiz />
+        </div>
+      );
   }
 
   const getIcon = () => {
