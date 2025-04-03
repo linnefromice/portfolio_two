@@ -1,4 +1,5 @@
 import { FC } from "react";
+import image1 from "../../../assets/side/study_record_1.gif";
 import { STUDY_RECORD } from "../../Side/constants";
 import InfoBase from "./InfoBase";
 
@@ -38,11 +39,7 @@ const StudyRecord: FC = () => {
   );
 
   const Images = () => (
-    <img
-      src="/src/assets/side/study_record_1.gif"
-      alt="Study Record App"
-      className="info-image"
-    />
+    <img src={image1} alt="Study Record App" className="info-image" />
   );
 
   return (

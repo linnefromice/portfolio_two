@@ -1,4 +1,6 @@
 import { FC } from "react";
+import image1 from "../../../assets/side/ff_quiz_1.png";
+import image2 from "../../../assets/side/ff_quiz_2.png";
 import { FF_QUIZ } from "../../Side/constants";
 import InfoBase from "./InfoBase";
 
@@ -39,16 +41,8 @@ const FFQuiz: FC = () => {
 
   const Images = () => (
     <div className="info-images">
-      <img
-        src="/src/assets/side/ff_quiz_1.png"
-        alt="FF Quiz Screenshot 1"
-        className="info-image"
-      />
-      <img
-        src="/src/assets/side/ff_quiz_2.png"
-        alt="FF Quiz Screenshot 2"
-        className="info-image"
-      />
+      <img src={image1} alt="FF Quiz Screenshot 1" className="info-image" />
+      <img src={image2} alt="FF Quiz Screenshot 2" className="info-image" />
     </div>
   );
 

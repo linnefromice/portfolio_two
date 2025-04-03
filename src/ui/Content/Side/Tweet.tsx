@@ -1,4 +1,6 @@
 import { FC } from "react";
+import image1 from "../../../assets/side/tweet_1.gif";
+import image2 from "../../../assets/side/tweet_2.gif";
 import { TWEET } from "../../Side/constants";
 import InfoBase from "./InfoBase";
 
@@ -39,16 +41,8 @@ const Tweet: FC = () => {
 
   const Images = () => (
     <div className="info-images">
-      <img
-        src="/src/assets/side/tweet_1.gif"
-        alt="Tweet App Demo 1"
-        className="info-image"
-      />
-      <img
-        src="/src/assets/side/tweet_2.gif"
-        alt="Tweet App Demo 2"
-        className="info-image"
-      />
+      <img src={image1} alt="Tweet App Demo 1" className="info-image" />
+      <img src={image2} alt="Tweet App Demo 2" className="info-image" />
     </div>
   );
 

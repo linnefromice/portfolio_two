@@ -1,4 +1,5 @@
 import { FC } from "react";
+import image1 from "../../../assets/side/war_sim_game_1.gif";
 import { WAR_SIM_GAME } from "../../Side/constants";
 import InfoBase from "./InfoBase";
 
@@ -38,11 +39,7 @@ const WarSimGame: FC = () => {
   );
 
   const Images = () => (
-    <img
-      src="/src/assets/side/war_sim_game_1.gif"
-      alt="War Simulation Game"
-      className="info-image"
-    />
+    <img src={image1} alt="War Simulation Game" className="info-image" />
   );
 
   return (

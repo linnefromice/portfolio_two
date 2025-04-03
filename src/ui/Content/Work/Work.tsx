@@ -1,18 +1,34 @@
 import { FC, useEffect, useState } from "react";
 import "./Work.css";
 
+const WORK_IMAGES = import.meta.glob("/src/assets/work/*.png", {
+  eager: true,
+  import: "default",
+});
+const SECRET_WORK_IMAGES = import.meta.glob("/src/assets/work/secret/*.png", {
+  eager: true,
+  import: "default",
+});
+
 interface WorkData {
+  key: string;
   src: string;
   isShadingOff: boolean;
 }
-const SECRET_WORKS: WorkData[] = [1, 2, 3, 4, 5, 6].map((idx) => ({
-  src: `/src/assets/work/secret/${idx}.png`,
-  isShadingOff: true,
-}));
-const PUBLIC_WORKS: WorkData[] = [7, 8, 9, 10, 11].map((idx) => ({
-  src: `/src/assets/work/${idx}.png`,
-  isShadingOff: false,
-}));
+const SECRET_WORKS: WorkData[] = Object.entries(SECRET_WORK_IMAGES).map(
+  ([path, url]) => ({
+    key: path,
+    src: url as string,
+    isShadingOff: true,
+  })
+);
+const PUBLIC_WORKS: WorkData[] = Object.entries(WORK_IMAGES).map(
+  ([path, url]) => ({
+    key: path,
+    src: url as string,
+    isShadingOff: false,
+  })
+);
 const ALL_WORKS = [...SECRET_WORKS, ...PUBLIC_WORKS];
 
 interface WorkImage {
@@ -33,7 +49,7 @@ const Work: FC = () => {
   const [isAllDisplayed, setIsAllDisplayed] = useState(false);
 
   useEffect(() => {
-    if (cycle >= 3) {
+    if (cycle >= 2) {
       setIsAllDisplayed(true);
       return;
     }
@@ -51,7 +67,7 @@ const Work: FC = () => {
         y: randomY,
         scale: 0.25 + Math.random() * 0.15,
         rotation: Math.random() * 30 - 15,
-        opacity: workData.isShadingOff ? 0.25 : 1,
+        opacity: workData.isShadingOff ? 0.2 : 0.8,
         isCircle: Math.random() > 0.5,
         hue: Math.random() * 360,
       };
