@@ -3,6 +3,7 @@ import { FaTwitter } from "react-icons/fa";
 import { MdAccountCircle, MdSmartphone, MdWeb, MdWork } from "react-icons/md";
 import Career from "./Career";
 import "./Content.css";
+import Hobby from "./Hobby";
 import Profile from "./Profile";
 import Skill from "./Skill";
 
@@ -32,6 +33,13 @@ const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
       return (
         <div className="content-display">
           <Career />
+        </div>
+      );
+    }
+    if (activeSubMenu === 3) {
+      return (
+        <div className="content-display">
+          <Hobby />
         </div>
       );
     }
