@@ -37,17 +37,21 @@ const MAIN_SKILL_ITEMS: SkillItem[] = [
 const Profile: FC = () => {
   return (
     <div className="profile-content">
-      <div className="profile-avatar">
-        <img src="/icon_account_resize.jpg" alt="Profile Avatar" />
-      </div>
-      <h2 className="profile-name">Paru (Arata)</h2>
-
-      {PROFILE_ITEM_LIST.map((item) => (
-        <div className="profile-info-row" key={item.value}>
-          {item.icon}
-          <span>{item.value}</span>
+      <div className="profile-top-section">
+        <div className="profile-avatar">
+          <img src="/icon_account_resize.jpg" alt="Profile Avatar" />
         </div>
-      ))}
+
+        <div className="profile-info-container">
+          <h2 className="profile-name">Paru (Arata)</h2>
+          {PROFILE_ITEM_LIST.map((item) => (
+            <div className="profile-info-row" key={item.value}>
+              {item.icon}
+              <span>{item.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <p className="profile-description">
         I like soccer and games.
