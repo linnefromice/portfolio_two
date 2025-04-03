@@ -10,6 +10,7 @@ import StudyRecord from "./Side/StudyRecord";
 import Tweet from "./Side/Tweet";
 import WarSimGame from "./Side/WarSimGame";
 import Skill from "./Skill";
+import Work from "./Work/Work";
 
 interface ContentProps {
   activeMenu: number;
@@ -47,6 +48,14 @@ const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
         </div>
       );
     }
+  }
+
+  if (activeMenu === 1) {
+    return (
+      <div className="content-display">
+        <Work />
+      </div>
+    );
   }
 
   // Side menuの場合
