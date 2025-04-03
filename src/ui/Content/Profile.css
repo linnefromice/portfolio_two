@@ -40,13 +40,6 @@
   font-size: 14px;
 }
 
-.profile-divider {
-  width: 80%;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 16px 0;
-}
-
 .profile-description {
   font-size: 14px;
   text-align: center;

@@ -1,11 +1,6 @@
 import { FC } from "react";
+import { SkillItem } from "../types";
 import "./Skill.css";
-
-interface SkillItem {
-  name: string;
-  color: "primary" | "secondary";
-  disabled?: boolean;
-}
 
 interface SkillsData {
   work: SkillItem[][];
