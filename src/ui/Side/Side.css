@@ -103,12 +103,10 @@
     border-radius: 8px;
   }
 
-  /* ラベルを非表示 */
   .submenu-label {
     display: none;
   }
 
-  /* アイコンのサイズと位置を調整 */
   .submenu-icon {
     margin: 0;
   }
@@ -118,14 +116,12 @@
     height: 20px;
   }
 
-  /* アニメーションの調整 */
   .submenu-item:hover {
     transform: scale(1.1);
   }
 
-  /* コンテンツエリアの調整 */
   .content-display {
-    left: 60px; /* サブメニューの幅に合わせて調整 */
+    left: 60px;
   }
 }
 
@@ -147,7 +143,6 @@
     height: 16px;
   }
 
-  /* さらにコンテンツエリアを調整 */
   .content-display {
     left: 44px;
   }

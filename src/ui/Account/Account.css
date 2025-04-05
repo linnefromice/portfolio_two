@@ -101,17 +101,14 @@
     justify-content: center;
   }
 
-  /* ラベルを非表示 */
   .submenu-label {
     display: none;
   }
 
-  /* アイコンのサイズと位置を調整 */
   .submenu-icon {
     margin: 0;
   }
 
-  /* アニメーションの調整 */
   .submenu-item:hover {
     transform: scale(1.1);
   }
@@ -129,7 +126,6 @@
     padding: 4px;
   }
 
-  /* アイコンサイズをさらに小さく */
   .submenu-icon svg {
     width: 16px;
     height: 16px;
