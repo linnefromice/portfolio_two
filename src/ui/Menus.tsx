@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { MdAccountCircle, MdCode, MdWork } from "react-icons/md";
 import Account from "./Account/Account";
 import Content from "./Content/Content";
@@ -25,10 +25,19 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const Menus: FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [activeSubMenu, setActiveSubMenu] = useState(0);
+interface MenusProps {
+  activeIndex: number;
+  onMenuChange: (index: number) => void;
+  activeSubMenu: number;
+  onSubMenuChange: (index: number) => void;
+}
 
+const Menus: FC<MenusProps> = ({
+  activeIndex,
+  onMenuChange,
+  activeSubMenu,
+  onSubMenuChange,
+}) => {
   return (
     <>
       <div className="menu-container">
@@ -37,8 +46,8 @@ const Menus: FC = () => {
             key={item.label}
             className={`menu-item ${activeIndex === index ? "active" : ""}`}
             onClick={() => {
-              setActiveIndex(index);
-              setActiveSubMenu(0);
+              onMenuChange(index);
+              onSubMenuChange(0);
             }}
           >
             <div className="menu-icon">{item.icon}</div>
@@ -51,14 +60,11 @@ const Menus: FC = () => {
       {activeIndex === 0 && (
         <Account
           activeSubMenu={activeSubMenu}
-          onSubMenuSelect={setActiveSubMenu}
+          onSubMenuSelect={onSubMenuChange}
         />
       )}
       {activeIndex === 2 && (
-        <Side
-          activeSubMenu={activeSubMenu}
-          onSubMenuSelect={setActiveSubMenu}
-        />
+        <Side activeSubMenu={activeSubMenu} onSubMenuSelect={onSubMenuChange} />
       )}
       <Content activeMenu={activeIndex} activeSubMenu={activeSubMenu} />
     </>

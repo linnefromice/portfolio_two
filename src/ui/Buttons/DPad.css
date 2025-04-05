@@ -1,0 +1,233 @@
+.d-pad {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.d-pad-button {
+  position: absolute;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-pad-button:hover {
+  background-color: #444;
+}
+
+.d-pad-button:active {
+  background-color: #555;
+  transform: scale(0.95);
+}
+
+.d-pad-button .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.d-pad-button.up .arrow {
+  border-width: 0 8px 12px 8px;
+  border-bottom-color: #111;
+  margin-top: 4px;
+}
+
+.d-pad-button.right .arrow {
+  border-width: 8px 0 8px 12px;
+  border-left-color: #111;
+  margin-left: 4px;
+}
+
+.d-pad-button.down .arrow {
+  border-width: 12px 8px 0 8px;
+  border-top-color: #111;
+  margin-bottom: 4px;
+}
+
+.d-pad-button.left .arrow {
+  border-width: 8px 12px 8px 0;
+  border-right-color: #111;
+  margin-right: 4px;
+}
+
+.d-pad-button.up {
+  top: 0;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px 8px 0 0;
+}
+
+.d-pad-button.right {
+  top: 40px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 8px 8px 0;
+}
+
+.d-pad-button.down {
+  bottom: 0;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 0 8px 8px;
+}
+
+.d-pad-button.left {
+  top: 40px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px 0 0 8px;
+}
+
+.d-pad-center {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .d-pad {
+    width: 100px;
+    height: 100px;
+  }
+
+  .d-pad-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .d-pad-button.up .arrow {
+    border-width: 0 6px 9px 6px;
+  }
+
+  .d-pad-button.right .arrow {
+    border-width: 6px 0 6px 9px;
+  }
+
+  .d-pad-button.down .arrow {
+    border-width: 9px 6px 0 6px;
+  }
+
+  .d-pad-button.left .arrow {
+    border-width: 6px 9px 6px 0;
+  }
+
+  .d-pad-button.up {
+    left: 34px;
+  }
+
+  .d-pad-button.right {
+    top: 34px;
+  }
+
+  .d-pad-button.down {
+    left: 34px;
+  }
+
+  .d-pad-button.left {
+    top: 34px;
+  }
+
+  .d-pad-center {
+    top: 34px;
+    left: 34px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .d-pad {
+    width: 80px;
+    height: 80px;
+  }
+
+  .d-pad-button {
+    width: 26px;
+    height: 26px;
+  }
+
+  .d-pad-button.up .arrow {
+    border-width: 0 5px 7px 5px;
+  }
+
+  .d-pad-button.right .arrow {
+    border-width: 5px 0 5px 7px;
+  }
+
+  .d-pad-button.down .arrow {
+    border-width: 7px 5px 0 5px;
+  }
+
+  .d-pad-button.left .arrow {
+    border-width: 5px 7px 5px 0;
+  }
+
+  .d-pad-button.up {
+    left: 27px;
+  }
+
+  .d-pad-button.right {
+    top: 27px;
+  }
+
+  .d-pad-button.down {
+    left: 27px;
+  }
+
+  .d-pad-button.left {
+    top: 27px;
+  }
+
+  .d-pad-center {
+    top: 27px;
+    left: 27px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.d-pad-button.left:disabled,
+.d-pad-button.right:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.d-pad-button.left:disabled:hover,
+.d-pad-button.right:disabled:hover {
+  background-color: #333;
+}
+
+.d-pad-button.left:disabled:active,
+.d-pad-button.right:disabled:active {
+  transform: none;
+}
+
+.d-pad-button.up:disabled,
+.d-pad-button.down:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.d-pad-button.up:disabled:hover,
+.d-pad-button.down:disabled:hover {
+  background-color: #333;
+}
+
+.d-pad-button.up:disabled:active,
+.d-pad-button.down:disabled:active {
+  transform: none;
+}
