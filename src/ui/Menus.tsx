@@ -12,15 +12,15 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
-    icon: <MdAccountCircle size="24" />,
+    icon: <MdAccountCircle size="20" />,
     label: "Account",
   },
   {
-    icon: <MdWork size="24" />,
+    icon: <MdWork size="20" />,
     label: "Work",
   },
   {
-    icon: <MdCode size="24" />,
+    icon: <MdCode size="20" />,
     label: "Side",
   },
 ];
