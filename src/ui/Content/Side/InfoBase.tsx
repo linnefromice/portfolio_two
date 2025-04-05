@@ -19,7 +19,6 @@ const InfoBase: FC<InfoBaseProps> = ({
 }) => {
   const [showImages, setShowImages] = useState(false);
 
-  // 初期表示から3秒後に画像ページに切り替え
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowImages(true);

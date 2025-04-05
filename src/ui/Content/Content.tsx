@@ -18,7 +18,6 @@ interface ContentProps {
 }
 
 const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
-  // Account menu の表示
   if (activeMenu === 0) {
     if (activeSubMenu === 0) {
       return (
@@ -58,7 +57,6 @@ const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
     );
   }
 
-  // Side menuの場合
   if (activeMenu === 2) {
     if (activeSubMenu === 0)
       return (
@@ -90,7 +88,6 @@ const Content: FC<ContentProps> = ({ activeMenu, activeSubMenu }) => {
     if (activeMenu === 1) return <MdWork size="64" />;
     if (activeMenu === 0) return <MdAccountCircle size="64" />;
 
-    // Side menu icons
     const sideIcons = [
       <MdWeb size="64" />,
       <FaTwitter size="64" />,

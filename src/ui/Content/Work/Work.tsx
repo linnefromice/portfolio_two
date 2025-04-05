@@ -55,7 +55,6 @@ const Work: FC = () => {
     }
 
     const createNextImage = (): WorkImage => {
-      // ランダムな位置を生成（-45%から45%の範囲）
       const randomX = Math.random() * 120 - 60;
       const randomY = Math.random() * 120 - 60;
 
@@ -78,7 +77,6 @@ const Work: FC = () => {
         const newImage = createNextImage();
         const newImages = [...prev, newImage];
 
-        // 各画像の位置を少しずつランダムに移動
         const updatedImages = newImages.map((img) => {
           if (img === newImage) {
             return {
@@ -87,8 +85,7 @@ const Work: FC = () => {
             };
           }
 
-          // 既存の画像の位置を少しずつ動かす
-          const moveX = (Math.random() - 0.5) * 2; // -1から1の範囲
+          const moveX = (Math.random() - 0.5) * 2;
           const moveY = (Math.random() - 0.5) * 2;
 
           return {
