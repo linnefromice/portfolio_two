@@ -85,3 +85,49 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  .submenu-container {
+    left: 8px;
+    top: 60px;
+    padding: 4px;
+  }
+
+  .submenu-item {
+    padding: 8px;
+    min-width: auto;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+  }
+
+  .submenu-label {
+    display: none;
+  }
+
+  .submenu-icon {
+    margin: 0;
+  }
+
+  .submenu-item:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .submenu-container {
+    left: 4px;
+    top: 50px;
+  }
+
+  .submenu-item {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  .submenu-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}

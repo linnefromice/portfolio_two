@@ -113,7 +113,7 @@
   }
 }
 
-/* ダークモード対応 */
+/* support dark mode */
 /* @media (prefers-color-scheme: dark) {
   .screen-container {
     background-color: #000;
@@ -128,7 +128,7 @@
   }
 } */
 
-/* レスポンシブ対応 */
+/* responsive */
 @media (max-width: 1024px) {
   .game-console {
     max-width: 900px;
@@ -140,19 +140,77 @@
 }
 
 @media (max-width: 768px) {
+  #root {
+    padding: 0.5rem;
+  }
+
   .game-console {
     flex-direction: column;
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .screen-container {
+    width: 100%;
+    padding: 16px;
+    min-height: 400px;
+    order: 1;
   }
 
   .controller {
-    width: 200px;
+    width: 100px;
+    order: 2;
   }
 
-  .controller.left img {
-    transform: rotate(90deg);
+  .game-console {
+    display: flex;
+    flex-direction: column;
   }
 
-  .controller.right img {
-    transform: rotate(-90deg);
+  .controller.left,
+  .controller.right {
+    margin: 0;
+  }
+
+  .game-console > .controller.left,
+  .game-console > .controller.right {
+    display: none;
+  }
+
+  .game-console::after {
+    content: "";
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    order: 3;
+  }
+
+  .game-console::after {
+    content: "";
+    display: flex;
+    gap: 20px;
+  }
+
+  .game-console::after {
+    content: "";
+    background: url("./assets/button_left.svg") left center / 100px no-repeat,
+      url("./assets/button_right.svg") right center / 100px no-repeat;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .screen-container {
+    padding: 12px;
+    min-height: 300px;
+  }
+
+  .game-console::after {
+    padding: 0 8px;
+    background-size: 80px;
+    height: 80px;
   }
 }

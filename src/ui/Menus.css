@@ -60,3 +60,53 @@
     transform: translateX(0);
   }
 }
+
+@media (max-width: 768px) {
+  .menu-container {
+    top: 4px;
+    left: 8px;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .menu-item {
+    padding: 6px;
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .menu-icon {
+    transform: scale(0.9);
+  }
+
+  .menu-label {
+    display: none;
+  }
+
+  .menu-item.active .menu-icon {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-container {
+    top: 2px;
+    left: 4px;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .menu-item {
+    padding: 4px;
+    min-width: 28px;
+    height: 28px;
+  }
+
+  .menu-icon {
+    transform: scale(0.8);
+  }
+
+  .menu-item.active .menu-icon {
+    transform: scale(1);
+  }
+}

@@ -9,7 +9,6 @@
   animation: fadeIn 0.3s ease;
 }
 
-/* 新しく追加する上部セクションのスタイル */
 .profile-top-section {
   width: 100%;
   display: flex;
@@ -29,16 +28,15 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
-  flex-shrink: 0; /* アバターのサイズを固定 */
+  flex-shrink: 0;
 }
 
-/* 右側のコンテンツを包むコンテナ */
 .profile-info-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  padding-top: 8px; /* アバターとの位置調整 */
+  padding-top: 8px;
 }
 
 .profile-avatar img {
@@ -51,7 +49,7 @@
 .profile-name {
   font-size: 24px;
   font-weight: 600;
-  margin: 0; /* マージンをリセット */
+  margin: 0;
 }
 
 .profile-info-row {

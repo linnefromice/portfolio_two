@@ -79,11 +79,10 @@
 .career-detail-item {
   width: 100%;
   text-align: left;
-  margin: 2px 0; /* 行間を縮小 */
+  margin: 2px 0;
   padding: 0;
 }
 
-/* スクロールバーのスタイル */
 .career-content::-webkit-scrollbar {
   width: 8px;
 }
