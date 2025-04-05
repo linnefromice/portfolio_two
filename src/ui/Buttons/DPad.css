@@ -226,3 +226,20 @@
 .d-pad-button.right:disabled:active {
   transform: none;
 }
+
+/* 既存のスタイルに追加 */
+.d-pad-button.up:disabled,
+.d-pad-button.down:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.d-pad-button.up:disabled:hover,
+.d-pad-button.down:disabled:hover {
+  background-color: #333;
+}
+
+.d-pad-button.up:disabled:active,
+.d-pad-button.down:disabled:active {
+  transform: none;
+}
