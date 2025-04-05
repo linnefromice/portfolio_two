@@ -10,19 +10,19 @@ interface SubMenuItem {
 
 const subMenuItems: SubMenuItem[] = [
   {
-    icon: <MdWeb size="20" />,
+    icon: <MdWeb size="20" className="submenu-icon-svg" />,
     label: "war_sim_game",
   },
   {
-    icon: <FaTwitter size="20" />,
+    icon: <FaTwitter size="20" className="submenu-icon-svg" />,
     label: "tweet",
   },
   {
-    icon: <MdSmartphone size="20" />,
+    icon: <MdSmartphone size="20" className="submenu-icon-svg" />,
     label: "study_record",
   },
   {
-    icon: <MdSmartphone size="20" />,
+    icon: <MdSmartphone size="20" className="submenu-icon-svg" />,
     label: "ff_quiz",
   },
 ];

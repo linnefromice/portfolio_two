@@ -141,41 +141,64 @@
 
 @media (max-width: 768px) {
   #root {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .game-console {
     flex-direction: column;
     gap: 12px;
-    padding: 10px;
+    padding: 8px;
   }
 
   .screen-container {
     width: 100%;
-    padding: 20px;
+    padding: 16px;
     min-height: 400px;
-  }
-
-  .controllers-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    order: 1;
   }
 
   .controller {
-    width: 120px;
+    width: 100px;
+    order: 2;
   }
 
-  .controller.left img,
-  .controller.right img {
-    transform: none;
+  .game-console {
+    display: flex;
+    flex-direction: column;
   }
 
-  .controller:hover img {
-    transform: scale(1.1);
+  .controller.left,
+  .controller.right {
+    margin: 0;
+  }
+
+  .game-console > .controller.left,
+  .game-console > .controller.right {
+    display: none;
+  }
+
+  .game-console::after {
+    content: "";
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    order: 3;
+  }
+
+  .game-console::after {
+    content: "";
+    display: flex;
+    gap: 20px;
+  }
+
+  .game-console::after {
+    content: "";
+    background: url("./assets/button_left.svg") left center / 100px no-repeat,
+      url("./assets/button_right.svg") right center / 100px no-repeat;
+    height: 100px;
   }
 }
 
@@ -185,7 +208,9 @@
     min-height: 300px;
   }
 
-  .controller {
-    width: 100px;
+  .game-console::after {
+    padding: 0 8px;
+    background-size: 80px;
+    height: 80px;
   }
 }

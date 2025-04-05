@@ -11,19 +11,19 @@ interface SubMenuItem {
 
 const subMenuItems: SubMenuItem[] = [
   {
-    icon: <RiProfileLine size="20" />,
+    icon: <RiProfileLine size="24" className="submenu-icon-svg" />,
     label: "Profile",
   },
   {
-    icon: <MdWorkHistory size="20" />,
+    icon: <MdWorkHistory size="24" className="submenu-icon-svg" />,
     label: "Skill",
   },
   {
-    icon: <FaGraduationCap size="20" />,
+    icon: <FaGraduationCap size="24" className="submenu-icon-svg" />,
     label: "Career",
   },
   {
-    icon: <MdFreeBreakfast size="20" />,
+    icon: <MdFreeBreakfast size="24" className="submenu-icon-svg" />,
     label: "Hobby",
   },
 ];
