@@ -10,12 +10,12 @@ const App = () => {
 
   const handleDPadLeft = () => {
     setActiveMenuIndex((prev) => (prev > 0 ? prev - 1 : prev));
-    setActiveSubMenuIndex(0); // メインメニュー切り替え時にサブメニューをリセット
+    setActiveSubMenuIndex(0);
   };
 
   const handleDPadRight = () => {
     setActiveMenuIndex((prev) => (prev < 2 ? prev + 1 : prev));
-    setActiveSubMenuIndex(0); // メインメニュー切り替え時にサブメニューをリセット
+    setActiveSubMenuIndex(0);
   };
 
   const handleDPadUp = () => {
