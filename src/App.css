@@ -113,7 +113,7 @@
   }
 }
 
-/* ダークモード対応 */
+/* support dark mode */
 /* @media (prefers-color-scheme: dark) {
   .screen-container {
     background-color: #000;
@@ -128,7 +128,7 @@
   }
 } */
 
-/* レスポンシブ対応 */
+/* responsive */
 @media (max-width: 1024px) {
   .game-console {
     max-width: 900px;
@@ -140,19 +140,52 @@
 }
 
 @media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
   .game-console {
     flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .screen-container {
+    width: 100%;
+    padding: 20px;
+    min-height: 400px;
+  }
+
+  .controllers-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .controller {
-    width: 200px;
+    width: 120px;
   }
 
-  .controller.left img {
-    transform: rotate(90deg);
-  }
-
+  .controller.left img,
   .controller.right img {
-    transform: rotate(-90deg);
+    transform: none;
+  }
+
+  .controller:hover img {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .screen-container {
+    padding: 12px;
+    min-height: 300px;
+  }
+
+  .controller {
+    width: 100px;
   }
 }
