@@ -25,8 +25,12 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const Menus: FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+interface MenusProps {
+  activeIndex: number;
+  onMenuChange: (index: number) => void;
+}
+
+const Menus: FC<MenusProps> = ({ activeIndex, onMenuChange }) => {
   const [activeSubMenu, setActiveSubMenu] = useState(0);
 
   return (
@@ -37,7 +41,7 @@ const Menus: FC = () => {
             key={item.label}
             className={`menu-item ${activeIndex === index ? "active" : ""}`}
             onClick={() => {
-              setActiveIndex(index);
+              onMenuChange(index);
               setActiveSubMenu(0);
             }}
           >

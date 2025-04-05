@@ -209,3 +209,20 @@
     height: 26px;
   }
 }
+
+/* 既存のスタイルに追加 */
+.d-pad-button.left:disabled,
+.d-pad-button.right:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.d-pad-button.left:disabled:hover,
+.d-pad-button.right:disabled:hover {
+  background-color: #333;
+}
+
+.d-pad-button.left:disabled:active,
+.d-pad-button.right:disabled:active {
+  transform: none;
+}
