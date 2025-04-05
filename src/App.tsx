@@ -1,13 +1,13 @@
 import "./App.css";
-import buttonLeft from "./assets/button_left.svg";
 import buttonRight from "./assets/button_right.svg";
+import DPad from "./ui/Buttons/DPad";
 import Menus from "./ui/Menus";
 
 const App = () => {
   return (
     <div className="game-console flex-center">
       <div className="controller left">
-        <img src={buttonLeft} alt="Left Controller" />
+        <DPad />
       </div>
       <div className="screen-container">
         <div className="stream-background">
