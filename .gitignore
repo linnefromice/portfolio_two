@@ -25,3 +25,6 @@ dist-ssr
 
 # customize
 reference
+
+# Claude Code local files
+CLAUDE.local.md
