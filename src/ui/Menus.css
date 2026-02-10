@@ -47,18 +47,7 @@
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-  animation: fadeIn 0.2s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  animation: fadeInLeft 0.2s ease;
 }
 
 @media (max-width: 768px) {

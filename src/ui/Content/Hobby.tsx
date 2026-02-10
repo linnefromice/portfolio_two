@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import {
   FaBasketballBall,
   FaChessKing,
@@ -11,7 +11,7 @@ import { MdMovie, MdMusicNote, MdRadio } from "react-icons/md";
 import "./Hobby.css";
 
 interface Hobby {
-  icon: JSX.Element;
+  icon: ReactNode;
   primary: string;
   secondary: string;
 }

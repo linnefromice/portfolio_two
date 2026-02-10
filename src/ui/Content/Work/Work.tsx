@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import "./Work.css";
 
 const WORK_IMAGES = import.meta.glob("/src/assets/work/*.png", {
@@ -44,7 +44,7 @@ interface WorkImage {
 
 const Work: FC = () => {
   const [images, setImages] = useState<WorkImage[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentIndexRef = useRef(0);
   const [cycle, setCycle] = useState(0);
   const [isAllDisplayed, setIsAllDisplayed] = useState(false);
 
@@ -58,7 +58,7 @@ const Work: FC = () => {
       const randomX = Math.random() * 120 - 60;
       const randomY = Math.random() * 120 - 60;
 
-      const workData = ALL_WORKS[currentIndex];
+      const workData = ALL_WORKS[currentIndexRef.current];
 
       return {
         src: workData.src,
@@ -99,17 +99,15 @@ const Work: FC = () => {
         return updatedImages.filter((img) => img.opacity > 0);
       });
 
-      setCurrentIndex((prev) => {
-        const next = (prev + 1) % ALL_WORKS.length;
-        if (next === 0) {
-          setCycle((c) => c + 1);
-        }
-        return next;
-      });
+      const next = (currentIndexRef.current + 1) % ALL_WORKS.length;
+      currentIndexRef.current = next;
+      if (next === 0) {
+        setCycle((c) => c + 1);
+      }
     }, 300);
 
     return () => clearInterval(interval);
-  }, [currentIndex, cycle]);
+  }, [cycle]);
 
   return (
     <div className="work-content">

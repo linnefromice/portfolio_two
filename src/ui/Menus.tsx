@@ -1,29 +1,8 @@
 import { FC } from "react";
-import { MdAccountCircle, MdCode, MdWork } from "react-icons/md";
-import Account from "./Account/Account";
+import { MENU_CONFIG } from "../config/menuConfig";
 import Content from "./Content/Content";
 import "./Menus.css";
-import Side from "./Side/Side";
-
-interface MenuItem {
-  icon: JSX.Element;
-  label: string;
-}
-
-const menuItems: MenuItem[] = [
-  {
-    icon: <MdAccountCircle size="20" />,
-    label: "Account",
-  },
-  {
-    icon: <MdWork size="20" />,
-    label: "Work",
-  },
-  {
-    icon: <MdCode size="20" />,
-    label: "Side",
-  },
-];
+import SubMenu from "./SubMenu";
 
 interface MenusProps {
   activeIndex: number;
@@ -38,17 +17,16 @@ const Menus: FC<MenusProps> = ({
   activeSubMenu,
   onSubMenuChange,
 }) => {
+  const currentMenu = MENU_CONFIG[activeIndex];
+
   return (
     <>
       <div className="menu-container">
-        {menuItems.map((item, index) => (
+        {MENU_CONFIG.map((item, index) => (
           <button
-            key={item.label}
+            key={item.id}
             className={`menu-item ${activeIndex === index ? "active" : ""}`}
-            onClick={() => {
-              onMenuChange(index);
-              onSubMenuChange(0);
-            }}
+            onClick={() => onMenuChange(index)}
           >
             <div className="menu-icon">{item.icon}</div>
             {activeIndex === index && (
@@ -57,14 +35,12 @@ const Menus: FC<MenusProps> = ({
           </button>
         ))}
       </div>
-      {activeIndex === 0 && (
-        <Account
+      {currentMenu.submenus.length > 0 && (
+        <SubMenu
+          items={currentMenu.submenus}
           activeSubMenu={activeSubMenu}
           onSubMenuSelect={onSubMenuChange}
         />
-      )}
-      {activeIndex === 2 && (
-        <Side activeSubMenu={activeSubMenu} onSubMenuSelect={onSubMenuChange} />
       )}
       <Content activeMenu={activeIndex} activeSubMenu={activeSubMenu} />
     </>

@@ -1,38 +1,22 @@
-import { useState } from "react";
 import "./App.css";
 import buttonRight from "./assets/button_right.svg";
+import { useMenuNavigation } from "./hooks/useMenuNavigation";
 import DPad from "./ui/Buttons/DPad";
 import Menus from "./ui/Menus";
 
 const App = () => {
-  const [activeMenuIndex, setActiveMenuIndex] = useState(0);
-  const [activeSubMenuIndex, setActiveSubMenuIndex] = useState(0);
-
-  const handleDPadLeft = () => {
-    setActiveMenuIndex((prev) => (prev > 0 ? prev - 1 : prev));
-    setActiveSubMenuIndex(0);
-  };
-
-  const handleDPadRight = () => {
-    setActiveMenuIndex((prev) => (prev < 2 ? prev + 1 : prev));
-    setActiveSubMenuIndex(0);
-  };
-
-  const handleDPadUp = () => {
-    if (activeMenuIndex === 0) {
-      setActiveSubMenuIndex((prev) => (prev > 0 ? prev - 1 : prev));
-    } else if (activeMenuIndex === 2) {
-      setActiveSubMenuIndex((prev) => (prev > 0 ? prev - 1 : prev));
-    }
-  };
-
-  const handleDPadDown = () => {
-    const maxSubMenu =
-      activeMenuIndex === 0 ? 3 : activeMenuIndex === 2 ? 3 : 0;
-    if (maxSubMenu > 0) {
-      setActiveSubMenuIndex((prev) => (prev < maxSubMenu ? prev + 1 : prev));
-    }
-  };
+  const {
+    activeMenuIndex,
+    activeSubMenuIndex,
+    maxMenuIndex,
+    maxSubMenuIndex,
+    handleDPadLeft,
+    handleDPadRight,
+    handleDPadUp,
+    handleDPadDown,
+    handleMenuChange,
+    setActiveSubMenuIndex,
+  } = useMenuNavigation();
 
   return (
     <div className="game-console flex-center">
@@ -43,9 +27,9 @@ const App = () => {
           onUp={handleDPadUp}
           onDown={handleDPadDown}
           activeIndex={activeMenuIndex}
-          maxIndex={3}
+          maxIndex={maxMenuIndex}
           activeSubIndex={activeSubMenuIndex}
-          maxSubIndex={activeMenuIndex === 0 || activeMenuIndex === 2 ? 4 : 0}
+          maxSubIndex={maxSubMenuIndex}
         />
       </div>
       <div className="screen-container">
@@ -56,7 +40,7 @@ const App = () => {
         <div className="content">
           <Menus
             activeIndex={activeMenuIndex}
-            onMenuChange={setActiveMenuIndex}
+            onMenuChange={handleMenuChange}
             activeSubMenu={activeSubMenuIndex}
             onSubMenuChange={setActiveSubMenuIndex}
           />
