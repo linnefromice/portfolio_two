@@ -42,3 +42,17 @@ The app uses a 2D grid navigation controlled by a D-pad:
 - Uses `react-icons` (Material Design and Font Awesome) for icons
 - CSS is per-component (no CSS modules or styled-components)
 - Responsive breakpoints at 480px, 768px, and 1024px
+
+
+
+## User Customization
+
+If a `CLAUDE.local.md` file exists in the root directory, read it and **prioritize its
+instructions over this file**. This allows individual developers to customize AI behavior
+without affecting team-shared rules.
+
+Example use cases for `CLAUDE.local.md`:
+- Personal coding style preferences
+- Local environment-specific configurations
+- Custom workflow instructions
+- Development focus areas
