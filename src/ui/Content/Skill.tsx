@@ -84,29 +84,31 @@ const skillsData: SkillsData = {
 const Skill: FC = () => {
   return (
     <div className="skill-content">
-      {Object.entries(skillsData).map(([category, skillGroups]) => (
-        <div key={category} className="skill-category">
-          <h3 className="skill-category-title">
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </h3>
-          <div className="skill-groups">
-            {skillGroups.map((group, groupIndex) => (
-              <div key={groupIndex} className="skill-group">
-                {group.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className={`skill-chip ${skill.color} ${
-                      skill.disabled ? "disabled" : ""
-                    }`}
-                  >
-                    {skill.name}
-                  </span>
-                ))}
-              </div>
-            ))}
+      {(Object.entries(skillsData) as [string, SkillItem[][]][]).map(
+        ([category, skillGroups]) => (
+          <div key={category} className="skill-category">
+            <h3 className="skill-category-title">
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </h3>
+            <div className="skill-groups">
+              {skillGroups.map((group, groupIndex) => (
+                <div key={groupIndex} className="skill-group">
+                  {group.map((skill) => (
+                    <span
+                      key={skill.name}
+                      className={`skill-chip ${skill.color} ${
+                        skill.disabled ? "disabled" : ""
+                      }`}
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ),
+      )}
     </div>
   );
 };

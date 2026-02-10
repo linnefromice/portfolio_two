@@ -22,7 +22,7 @@
   transition: all 0.2s ease;
   width: fit-content;
   min-width: 160px;
-  animation: fadeIn 0.2s ease backwards;
+  animation: fadeInUp 0.2s ease backwards;
 }
 
 .submenu-item:nth-child(1) {
@@ -64,33 +64,12 @@
   white-space: nowrap;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (max-width: 768px) {
   .submenu-container {
     left: 8px;
     top: 60px;
     padding: 4px;
+    gap: 8px;
   }
 
   .submenu-item {
@@ -99,6 +78,7 @@
     width: 40px;
     height: 40px;
     justify-content: center;
+    border-radius: 8px;
   }
 
   .submenu-label {
@@ -107,6 +87,11 @@
 
   .submenu-icon {
     margin: 0;
+  }
+
+  .submenu-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .submenu-item:hover {
@@ -118,6 +103,7 @@
   .submenu-container {
     left: 4px;
     top: 50px;
+    gap: 4px;
   }
 
   .submenu-item {
