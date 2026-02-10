@@ -8,14 +8,12 @@
 // 絶対にダメ: ハードコードされたシークレット
 const apiKey = "sk-proj-xxxxx"
 
-// 常にこちら: 環境変数
-const apiKey = process.env.OPENAI_API_KEY
+// 正解: Vite環境変数を使用
+const apiKey = import.meta.env.VITE_API_KEY
 
 if (!apiKey) {
-  throw new Error('OPENAI_API_KEY not configured')
+  throw new Error('VITE_API_KEY not configured')
 }
 ```
 
-## エージェントサポート
-
-- 包括的なセキュリティ監査には **security-reviewer** スキルを使用
+**注意**: Viteではクライアントに公開される環境変数は `VITE_` プレフィックスが必須。

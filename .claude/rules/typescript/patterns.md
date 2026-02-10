@@ -2,21 +2,6 @@
 
 > このファイルは [common/patterns.md](../common/patterns.md) をTypeScript/JavaScript固有の内容で拡張しています。
 
-## APIレスポンス形式
-
-```typescript
-interface ApiResponse<T> {
-  success: boolean
-  data?: T
-  error?: string
-  meta?: {
-    total: number
-    page: number
-    limit: number
-  }
-}
-```
-
 ## カスタムフックパターン
 
 ```typescript
@@ -32,14 +17,12 @@ export function useDebounce<T>(value: T, delay: number): T {
 }
 ```
 
-## リポジトリパターン
+## コンポーネントプロップスパターン
 
 ```typescript
-interface Repository<T> {
-  findAll(filters?: Filters): Promise<T[]>
-  findById(id: string): Promise<T | null>
-  create(data: CreateDto): Promise<T>
-  update(id: string, data: UpdateDto): Promise<T>
-  delete(id: string): Promise<void>
+interface Props {
+  activeMenuIndex: number
+  activeSubMenuIndex: number
+  onNavigate: (direction: 'up' | 'down' | 'left' | 'right') => void
 }
 ```

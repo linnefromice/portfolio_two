@@ -14,7 +14,7 @@ model: opus
 1. **TypeScriptエラー解決** - 型エラー、推論の問題、ジェネリック制約を修正
 2. **ビルドエラー修正** - コンパイル失敗、モジュール解決を解決
 3. **依存関係の問題** - インポートエラー、欠落パッケージ、バージョン競合を修正
-4. **設定エラー** - tsconfig.json、webpack、Next.js設定の問題を解決
+4. **設定エラー** - tsconfig.json、Vite設定の問題を解決
 5. **最小限のdiff** - エラーを修正する最小限の変更のみ
 6. **アーキテクチャ変更なし** - エラーのみ修正、リファクタリングや再設計はしない
 
@@ -22,9 +22,9 @@ model: opus
 
 ### ビルド & 型チェックツール
 - **tsc** - 型チェック用TypeScriptコンパイラ
-- **npm/yarn** - パッケージ管理
+- **pnpm** - パッケージ管理
 - **eslint** - リンティング（ビルド失敗の原因になりうる）
-- **next build** - Next.js本番ビルド
+- **vite build** - Vite本番ビルド
 
 ### 診断コマンド
 ```bash
@@ -41,13 +41,10 @@ npx tsc --noEmit --pretty --incremental false
 npx tsc --noEmit path/to/file.ts
 
 # ESLintチェック
-npx eslint . --ext .ts,.tsx,.js,.jsx
+pnpm lint
 
-# Next.jsビルド（本番）
-npm run build
-
-# デバッグ付きNext.jsビルド
-npm run build -- --debug
+# Viteビルド（本番）
+pnpm build
 ```
 
 ## エラー解決ワークフロー
@@ -157,7 +154,7 @@ import { formatDate } from '@/lib/utils'
 import { formatDate } from '../lib/utils'
 
 // ✅ 修正3: 欠落パッケージをインストール
-npm install @/lib/utils
+pnpm install @/lib/utils
 ```
 
 **パターン5: 型の不一致**
@@ -230,8 +227,8 @@ async function fetchData() {
 import React from 'react'
 
 // ✅ 修正: 依存関係をインストール
-npm install react
-npm install --save-dev @types/react
+pnpm install react
+pnpm add -D @types/react
 
 // ✅ 確認: package.jsonに依存関係があることを確認
 {
@@ -244,21 +241,14 @@ npm install --save-dev @types/react
 }
 ```
 
-**パターン10: Next.js固有のエラー**
+**パターン10: Vite固有のエラー**
 ```typescript
-// ❌ エラー: Fast Refreshはフルリロードが必要でした
-// 通常、非コンポーネントのエクスポートが原因
+// ❌ エラー: import.meta.globの引数は文字列リテラルである必要がある
+const pattern = '/src/assets/*.png'
+const images = import.meta.glob(pattern)
 
-// ✅ 修正: エクスポートを分離
-// ❌ 間違い: file.tsx
-export const MyComponent = () => <div />
-export const someConstant = 42 // フルリロードの原因
-
-// ✅ 正しい: component.tsx
-export const MyComponent = () => <div />
-
-// ✅ 正しい: constants.ts
-export const someConstant = 42
+// ✅ 修正: 文字列リテラルを直接渡す
+const images = import.meta.glob('/src/assets/*.png')
 ```
 
 ## 最小限のdiff戦略
@@ -318,7 +308,7 @@ function processData(data: Array<{ value: number }>) {
 # ビルドエラー解決レポート
 
 **日付:** YYYY-MM-DD
-**ビルドターゲット:** Next.js本番 / TypeScriptチェック / ESLint
+**ビルドターゲット:** Vite本番 / TypeScriptチェック / ESLint
 **初期エラー数:** X
 **修正エラー数:** Y
 **ビルドステータス:** ✅ 成功 / ❌ 失敗
@@ -350,10 +340,10 @@ function processData(data: Array<{ value: number }>) {
 ## 検証ステップ
 
 1. ✅ TypeScriptチェック成功: `npx tsc --noEmit`
-2. ✅ Next.jsビルド成功: `npm run build`
+2. ✅ Viteビルド成功: `pnpm build`
 3. ✅ ESLintチェック成功: `npx eslint .`
 4. ✅ 新しいエラーなし
-5. ✅ 開発サーバー起動: `npm run dev`
+5. ✅ 開発サーバー起動: `pnpm dev`
 
 ## 概要
 
@@ -367,7 +357,7 @@ function processData(data: Array<{ value: number }>) {
 ## このエージェントを使用するタイミング
 
 **使用する場合:**
-- `npm run build` が失敗
+- `pnpm build` が失敗
 - `npx tsc --noEmit` がエラーを表示
 - 開発をブロックする型エラー
 - インポート/モジュール解決エラー
@@ -379,8 +369,6 @@ function processData(data: Array<{ value: number }>) {
 - アーキテクチャ変更が必要（architectを使用）
 - 新機能が必要（plannerを使用）
 - テスト失敗（tdd-guideを使用）
-- セキュリティ問題発見（security-reviewerを使用）
-
 ## ビルドエラー優先度レベル
 
 ### 🔴 クリティカル（即座に修正）
@@ -407,35 +395,35 @@ function processData(data: Array<{ value: number }>) {
 # エラーをチェック
 npx tsc --noEmit
 
-# Next.jsをビルド
-npm run build
+# Viteをビルド
+pnpm build
 
 # キャッシュをクリアして再ビルド
-rm -rf .next node_modules/.cache
-npm run build
+rm -rf dist node_modules/.cache
+pnpm build
 
 # 特定のファイルをチェック
 npx tsc --noEmit src/path/to/file.ts
 
 # 欠落した依存関係をインストール
-npm install
+pnpm install
 
 # ESLintの問題を自動修正
 npx eslint . --fix
 
 # TypeScriptを更新
-npm install --save-dev typescript@latest
+pnpm add -D typescript@latest
 
 # node_modulesを検証
 rm -rf node_modules package-lock.json
-npm install
+pnpm install
 ```
 
 ## 成功指標
 
 ビルドエラー解決後:
 - ✅ `npx tsc --noEmit` がコード0で終了
-- ✅ `npm run build` が正常完了
+- ✅ `pnpm build` が正常完了
 - ✅ 新しいエラーなし
 - ✅ 最小限の行変更（影響ファイルの5%未満）
 - ✅ ビルド時間が大幅に増加しない

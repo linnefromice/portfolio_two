@@ -1,11 +1,11 @@
 ---
 name: frontend-patterns
-description: Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.
+description: React 19 + TypeScript向けフロントエンド開発パターン。状態管理、パフォーマンス最適化、UIベストプラクティス。
 ---
 
 # フロントエンド開発パターン
 
-React、Next.js、パフォーマンスの高いユーザーインターフェースのためのモダンなフロントエンドパターン。
+React 19、パフォーマンスの高いユーザーインターフェースのためのモダンなフロントエンドパターン。
 
 ## コンポーネントパターン
 
